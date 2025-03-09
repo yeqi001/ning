@@ -1,0 +1,128 @@
+/* 页面背景粉色 */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffcccb; /* 粉色背景 */
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    justify-content: flex-start; /* 内容从顶部开始 */
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 3D轮播图样式 */
+#carousel-container {
+    position: relative;
+    width: 100%;
+    height: 450px; /* 轮播图高度 */
+    background-color: #ffcccb; /* 背景半透明白色 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 50px; /* 轮播图与顶部的间距 */
+}
+
+.carousel {
+    position: relative;
+    width: 350px; /* 增加宽度以放大图片 */
+    height: 500px; /* 增加高度以放大图片 */
+    transform-style: preserve-3d;
+    animation: rotateCarousel 22s infinite linear; /* 轮播图动画 */
+}
+
+.carousel__item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+    transition: transform 0.3s ease; /* 添加过渡效果 */
+}
+
+.carousel__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 图片填充整个容器 */
+    border-radius: 10px; /* 图片圆角 */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* 图片阴影 */
+    transition: transform 0.3s ease; /* 添加过渡效果 */
+}
+
+/* 鼠标悬停时图片放大 */
+.carousel__item:hover img {
+    transform: scale(1.2); /* 图片放大 */
+}
+
+@keyframes rotateCarousel {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+.carousel__item:nth-child(1) { transform: rotateY(0deg) translateZ(500px); }
+.carousel__item:nth-child(2) { transform: rotateY(60deg) translateZ(500px); }
+.carousel__item:nth-child(3) { transform: rotateY(120deg) translateZ(500px); }
+.carousel__item:nth-child(4) { transform: rotateY(180deg) translateZ(500px); }
+.carousel__item:nth-child(5) { transform: rotateY(240deg) translateZ(500px); }
+.carousel__item:nth-child(6) { transform: rotateY(300deg) translateZ(500px); }
+
+.hidden {
+    display: none;
+}
+
+/* 文本和按钮容器 */
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px; /* 与轮播图的间距 */
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+}
+
+#yes-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#yes-btn:hover {
+    background-color: #45a049;
+}
+
+#no-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+#no-btn:hover {
+    background-color: #e53935;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #555;
+}
